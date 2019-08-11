@@ -5,8 +5,8 @@
 
 #### 2、[Python基础](2-Python基础.md)
 
-#### 3、[Python高级](Python高级.md)
+#### 3、[Python高级](3-Python高级.md)
 
-#### 4、[Python实战](Python实战.md)
+#### 4、[Python实战](4-Python实战.md)
 
-#### 5、[vi编辑器](vi编辑器.md)
+#### 5、[vi编辑器](5-vi编辑器.md)
