@@ -297,6 +297,7 @@ print(name_list[1])
 ```python
 # 定义列表
 name_list = ["zhangsan", "lisi", "wangwu"]
+num_list = [1, 2, 8, 4]
 # 取值和取索引
 print(name_list[1])
 print(name_list.index("lisi"))
@@ -307,11 +308,23 @@ name_list.append("赵六")  # 列表末尾追加数据
 name_list.insert(1, "陈二麻子")  # 列表指定位置插入数据
 temp_list = ["孙悟空", "二师兄", "沙师弟"]  # 定义临时列表
 name_list.extend(temp_list)  # 扩展列表
+# 列表数据统计
 list_len = len(name_list)
 print("列表中有%d个元素" % list_len)  # 获取列表长度
 count = name_list.count("zhangsan")  # 统计张三出现的次数
 print("zhangsan出现了%d次" % count)
-
+# 列表的排序
+# 升序
+name_list.sort()
+num_list.sort()
+# 降序排列
+name_list.sort(reverse=True)
+num_list.sort(reverse=True)
+# 逆序，翻转
+name_list.reverse()
+num_list.reverse()
+print(name_list)
+print(num_list)
 # 列表删除数据
 name_list.remove("wangwu")  # 删除指定数据，如果有多个，删除第一个
 name_list.pop()  # pop默认删除最后一个数据
@@ -323,4 +336,48 @@ print(name_list)
 del name_list
 ```
 
-269
+30、关键字，函数，方法
+
+Python中有33个关键字，在ipython中import keyword，打印输出，print(keyword.kwlist)
+关键字后面不需要使用括号。
+函数封装了独立的功能，可以直接调用，必须送括号。必须死记硬背
+方法需要通过对象来调用，不需要死记硬背。
+
+31、列表的循环遍历
+
+```python
+# 定义列表
+name_list = ["zhangsan", "lisi", "wangwu"]
+# 使用迭代遍历列表
+for my_name in name_list:
+    print("我的名字是：%s" % my_name)
+```
+
+列表虽然也能存储不同数据类型的数据，但是通常都是存储相同类型的数据，然后进行迭代遍历操作。
+
+32、元组
+
+Tuple元组与列表类似，不同之处在于元组中的元素不能修改。元组使用小括号()定义。元组通常存储不同数据类型的变量，有特定的应用场景。
+在Python中可以使用for循环遍历所有非数字性变量：列表，元组，字典，字符串。
+但是在元组数据中使用for循环遍历并不常见，除非能够确认元组中的数据类型。
+元组的应用场景：
+1.函数的参数和返回值
+2.格式字符串，在格式化字符串时，小括号中就是一个元组
+3.让列表不可以修改，保护数据安全
+
+```python
+info_tuple = ("小明", 21, 1.75)
+# 格式化字符串后面的“()” 本质上就是元组
+print("%s 年龄是 %d 身高是 %.2f" % info_tuple)
+# 拼接字符串
+info_str = "%s 年龄是 %d 身高是 %.2f" % info_tuple
+print(info_str)
+# 元组转换为列表
+info_list = list(info_tuple)
+# 列表转换为元组
+info_tuple2 = tuple(info_list)
+```
+
+33、字典
+
+280
