@@ -294,3 +294,33 @@ print(name_list[1])
 
 29、列表的常用操作
 
+```python
+# 定义列表
+name_list = ["zhangsan", "lisi", "wangwu"]
+# 取值和取索引
+print(name_list[1])
+print(name_list.index("lisi"))
+# 修改列表数据
+name_list[1] = "李四"
+# 增加列表数据
+name_list.append("赵六")  # 列表末尾追加数据
+name_list.insert(1, "陈二麻子")  # 列表指定位置插入数据
+temp_list = ["孙悟空", "二师兄", "沙师弟"]  # 定义临时列表
+name_list.extend(temp_list)  # 扩展列表
+list_len = len(name_list)
+print("列表中有%d个元素" % list_len)  # 获取列表长度
+count = name_list.count("zhangsan")  # 统计张三出现的次数
+print("zhangsan出现了%d次" % count)
+
+# 列表删除数据
+name_list.remove("wangwu")  # 删除指定数据，如果有多个，删除第一个
+name_list.pop()  # pop默认删除最后一个数据
+name_list.pop(1)  # 根据指定的索引删除数据
+name_list.clear()  # 清空列表
+# 打印列表
+print(name_list)
+# 删除变量
+del name_list
+```
+
+269
