@@ -3,4 +3,4 @@
 
 ## 第五章 VI编辑器
 
-1、
+1、vi快捷键图谱![vim_key_cn](./pic/vim_key_cn.png)
