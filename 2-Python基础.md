@@ -445,4 +445,132 @@ for char in str2:
     print(char)
 ```
 
-288
+字符串变量内置了足够多的方法，可以很方便的处理字符串变量。
+
+```python
+hello_str = "hello world"
+# 判断是否以指定字符串开始
+print(hello_str.startswith("hello"))
+# 判断是否一指定字符串结束
+print(hello_str.endswith("world"))
+# 查找字符串
+# index方法同样可以查找字符串，但是如果找不大会报错。
+print(hello_str.find("llo"))
+# 替换字符串
+# replace方法执行后会返回一个新的字符串，不会修改原来自的字符串。
+print(hello_str.replace("world", "python"))
+print(hello_str)
+
+poem = ["登鹳雀楼\r\n",  # 网络爬取的数据很有可能有空白字符
+        "王之涣",
+        "白日依山尽\t\n",
+        "黄河入海流",
+        "欲穷千里目",
+        "更上一层楼"]
+for poem_str in poem:
+    # print("|%s|" % poem_str.strip().center(10,"　"))  # 10个字符，填充中文空格
+    print("|%s|" % poem_str.strip().ljust(10,"　"))  # strip方法可以去除空白字符
+    # print("|%s|" % poem_str.rjust(10,"　"))  # 10
+
+```
+
+35、字符串的拼接和拆分
+
+```python
+# 假设以下内容是从网络抓取得到的
+# 要求把字符串中的空白字符去掉，再使用空格作为分隔符，拼接成一个整齐的字符串
+
+poem_str = "登鹳雀楼\t 王之涣 \t 白日依山尽\t\n 黄河入海流 \t 欲穷千里目\t 更上一层楼"
+
+print(poem_str)
+
+# 拆分字符串
+poem_list = poem_str.split()
+print(poem_list)
+# 合并字符串
+resule = " ".join(poem_list)
+print(resule)
+```
+
+36、字符串的切片
+
+切片方法适用于字符串，列表，元组，切片使用索引值来限定范围。
+
+字符串[开始索引:结束索引:步长]
+
+正向索引从0开始，倒序从-1开始，想要切到结尾，结束字符留空即可。
+
+```python
+num_str = "0123456789"
+print(num_str[2:6])
+print(num_str[::2])
+print(num_str[-1])  # 取最后一个字符
+print(num_str[::-1])  # 逆序输出
+```
+
+37、公共方法
+
+len(item)
+del(item)
+max(item)
+min(item)
+cmp(item1,item2)
+
+```python
+a = [1, 3, 5, 7, 9]
+del a[1]
+print(a)
+# del(a)
+t_srt = "qweqweqwesdsldkfj"
+print(max(t_srt))
+print(min(t_srt))
+print(max(a))
+print("1" > "2")
+
+```
+
+字符串，列表，元组都能够切片
+
+```python
+print([0, 1, 2, 3, 4, 5][::-1])
+```
+
+38、运算符
+
+| 运算符       | python表达式          | 结果                       | 描述           | 支持的数据类型           |
+| ------------ | --------------------- | -------------------------- | -------------- | ------------------------ |
+| +            | [1, 2] + [3, 4]       | [1, 2, 3, 4]               | 合并           | 字符串、列表、元组       |
+| *            | ['Hi!']*4             | ['Hi!';'Hi!';'Hi!';'Hi!';] | 重复           | 字符串、列表、元组       |
+| in           | 3 in (1, 2, 3)        | True                       | 元素是否存在   | 字符串、列表、元组、字典 |
+| not in       | 4 not in (1, 2, 3)    | True                       | 元素是否不存在 | 字符串、列表、元组、字典 |
+| > >= == < <= | (1, 2, 3) < (2, 2, 3) | True                       | 元素比较       | 字符串、列表、元组       |
+
+39 、完整的for循环语法
+
+for 变量 in 集合：
+    循环提代码
+else:
+    没有通过break退出循环，循环结束后，会执行的代码。
+
+应用场景：循环遍历，如果存在，提示退出循环，如果不存在，希望得到一个统一的提示。
+
+```Python
+students = [
+    {"name": "阿土"},
+    {"name": "小美"}
+]
+find_name = "小美"
+for stu_dict in students:
+    print(stu_dict)
+    if stu_dict["name"] == find_name:
+        print("找到了 %s" % find_name)
+        # 如果找到,应该退出循环
+        break
+else:
+    print("抱歉，没有找到 %s" % find_name)
+print("循环结束")
+
+```
+
+40、综合应用--名片管理系统
+
