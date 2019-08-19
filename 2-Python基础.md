@@ -574,3 +574,209 @@ print("循环结束")
 
 40、综合应用--名片管理系统
 
+cards_main.py
+
+```python
+#! /usr/bin/python3
+# 第一行增加shebang符号和python3命令的完整路径
+import cards_tools
+
+# 无限循环，由用户决定什么时候退出
+while True:
+
+    # TODO(小明) 显示功能菜单，这里使用TODO可以创建一个待完成工作列表
+    cards_tools.show_menu()
+    action_str = input("请选择希望执行的操作：")
+    print("您选择的功能是 %s" % action_str)
+
+    # 1,2,3针对名片操作
+    if action_str in ["1", "2", "3"]:
+
+        # 新增名片
+        if action_str == "1":
+            cards_tools.new_card()
+        # 显示全部
+        if action_str == "2":
+            cards_tools.show_all()
+        # 查询名片
+        if action_str == "3":
+            cards_tools.search_card()
+    # 0 退出系统
+    elif action_str == "0":
+
+        print("欢迎再次使用【名片管理系统】")
+
+        break
+        # 如果在开发过程中不希望立刻编写分支内部代码
+        # 可以使用pass关键字，表示一个占位符，能够保证代码的结构正确。
+        # 程序运行时，pass关键字不会执行任何操作。
+        # pass
+    # 其他内容，输入错误，提示用户
+    else:
+        print("您输入错误，请重新输入:")
+
+```
+
+cards_tools.py
+
+```python
+# 定义全局列表，保存数据，列表中保存多个用户信息字典
+card_list = [{"name": "小明",
+              "phone": "120",
+              "qq": "123",
+              "email": "123@qq.com"}]
+
+
+def show_menu():
+    """ 显示菜单 """
+    print("*" * 50)
+    print("欢迎使用【名片管理系统】 V 1.0")
+    print("")
+    print("1. 新增名片")
+    print("2. 显示全部")
+    print("3. 查询名片")
+    print("")
+    print("0. 退出系统")
+    print("*" * 50)
+
+    
+def new_card():
+    """"新增名片"""
+    print("-" * 50)
+    print("新增名片")
+    # 提示用户输入信息
+    name_str = input("请输入姓名：")
+    phone_str = input("请输入电话：")
+    qq_str = input("请输入QQ:")
+    email_str = input("请输入邮件地址：")
+    # 根据用户信息建立名片字典
+    card_dict = {"name": name_str,
+                 "phone": phone_str,
+                 "qq": qq_str,
+                 "email": email_str}
+
+    # 将名片字典添加到列表中
+    card_list.append(card_dict)
+    # 提示用户添加成功
+    print("添加 %s 的名片成功" % name_str)
+
+    
+def show_all():
+    """ 显示全部"""
+    print("-" * 50)
+    print("显示所有名片")
+
+    # 判断是否存在名片记录，如果没有，提示用户并且返回
+    if len(card_list)==0:
+        print("当前没有任何名片记录，请使用新增功能添加")
+        return
+    # 打印表头
+    for name in ["姓名", "电话", "QQ", "邮箱"]:
+        print(name, end="\t\t")
+    # 输出一个空行，相当于换行
+    print("")
+    # 打印分隔符
+    print("=" * 50)
+    # 遍历名片列表，一次输出字典信息
+    for card_dict in card_list:
+        print("%s\t\t%s\t\t%s\t\t%s" % (card_dict["name"],
+                                        card_dict["phone"],
+                                        card_dict["qq"],
+                                        card_dict["email"]))
+
+        
+def search_card():
+    """搜索名片"""
+    print("-" * 50)
+    print("搜索名片")
+
+    # 提示用户输入要搜索的姓名
+    find_name = input("请输入要搜索的姓名：")
+
+    # 遍历名片列表，查询要搜索的姓名，如果没有找到，提示用户
+    for card_dict in card_list:
+        if card_dict["name"] == find_name:
+            print("姓名\t\t电话\t\tQQ\t\t邮箱")
+            print("*" * 50)
+            print("%s\t\t%s\t\t%s\t\t%s" % (card_dict["name"],
+                                            card_dict["phone"],
+                                            card_dict["qq"],
+                                            card_dict["email"]))
+            # 针对找到名片记录记性修改和删除操作
+            deal_card(card_dict)
+            break
+    else:
+        print("抱歉没有找到 %s " % find_name)
+
+        
+def deal_card(find_dict):
+    """
+
+    :param find_dict: 找到的字典
+    """
+    # print(find_dict)
+    action_str = input("请输入要执行的操作"
+                       " 【1】 修改 【2】 删除 【0】 返回 :")
+    if action_str == "1":
+        find_dict["name"] = input_card_info(find_dict["name"], "姓名：")
+        find_dict["phone"] = input_card_info(find_dict["phone"], "电话：")
+        find_dict["qq"] = input_card_info(find_dict["qq"], "QQ：")
+        find_dict["email"] = input_card_info(find_dict["email"], "邮箱：")
+        print("修改名片成功！")
+    elif action_str == "2":
+
+        card_list.remove(find_dict)
+
+        print("删除名片成功！")
+
+        
+def input_card_info(dict_value, tip_message):
+    """
+
+    :param dict_value: 字典中的原有值
+    :param tip_message: 输入的提示文字
+    :return: 输入的信息，如果没有输入，返回原有值
+    """
+    # 提示用户输入内容
+    result_str = input(tip_message)
+    # 针对用户输入进行判断，如果用户输入了内容，直接返回结果
+    if len(result_str)>0:
+        return result_str
+    # 如果用户没有输入内容，返回字典原有值
+    else:
+        return dict_value
+```
+
+41、变量的引用
+
+- 在Python中，函数的参数传递以及返回值都是靠引用传递的；
+- 在Python中，变量和数据是分开存储的
+- 数据保存在内存中的一个位置
+- 变量中保存这数据在内存中的地址
+- 变量中记录数据的地址，就叫做引用
+- 使用id()函数可以查看变量中保存数据所在的内存地址。
+
+注意，如果变量已经定义，当给一个变量赋值的时候，本质上是修改了数据的引用
+
+变量不在对之前的数据引用
+
+变量改为对新赋值的数据引用
+
+42、可变和不可变类型
+
+不可变类型，内存中的数据不允许被修改：
+
+- ​    数字类型 int， bool，float，complex，long
+- ​    字符串 str
+- ​    元组 tuple
+
+可变类型，内存中的数据可以被修改：
+
+- ​    列表 list
+- ​    字典 dict
+
+字典的key 只能使用不可变类型的数据
+
+可变类型的数据变化，是通过方法来实现的
+
+332
