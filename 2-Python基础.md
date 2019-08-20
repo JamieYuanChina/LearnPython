@@ -837,4 +837,231 @@ demo2()
 - 如果函数内部处理的数据不能确定，就可以将外接的数据以参数的形式传递到函数内部
 - 如果希望一个而函数执行完成后，向外界汇报执行结果，就可以增加函数的返回值
 
-345
+45、函数的返回值
+
+在Python中的函数，使用return关键字可以返回结果，函数的调用一方，可以使用变量来接收函数的返回结果。
+
+如果需要函数返回多个结果，可以利用元组返回。
+
+```python
+def measure():
+    """测量温度和湿度"""
+    print("测量开始...")
+    temp = 28
+    wetness = 50
+    print("测量结束...")
+    # 元组-可以包含多个数据，因此可使用元组让函数一次返回多个值
+    # 如果返回的是元组，小括号可以省略
+    # return (temp,wetness)
+    return temp, wetness
+
+
+# 元组接收
+result = measure()
+print(result)
+# 需要单独处理温度和湿度
+print(result[0])
+print(result[1])
+# 如果函数返回类型是元组，同时希望单独处理元组中的数据
+# 可以使用多个变量一次性接收函数的返回值
+# 注意：使用多个变量接收结果时，变量的个数应该和元组中的元素的个数保持一致
+gl_temp, gl_wetness = measure()
+print(gl_temp)
+print(gl_wetness)
+
+```
+
+46、交换两个变量的值
+
+```python
+a = 6
+b = 100
+# 解法1: - 使用其他变量
+# c = a
+# a = b
+# b = c
+
+# 解法: - 不使用其他变量
+# a = a + b
+# b = a - b
+# a = a - b
+
+# 解法3: - Python 专有
+# a, b = (b, a)
+# 等号右边是一个元组，只是省略了括号
+a, b = b, a
+
+print(a)
+print(b)
+```
+
+在函数内部，针对参数使用赋值语句，会不会影响调用函数时传递的实参变量，--不会
+无论传递的参数是可变还是不可变，都不会改变实参变量的值。
+只要针对参数使用赋值语句，就会在函数内部修改局部变量的引用，不会影响到外部变量的引用
+
+如果传递的参数是可变类型，在函数内部，使用方法修改了数据的内容，同样会影响到外部的数据。
+
+```python
+def mutable(num_list):
+    # num_list = {1, 2, 3}
+    num_list.extend([1, 2, 3])
+    print(num_list)
+
+
+gl_list = [6, 7, 8]
+mutable(gl_list)
+print(gl_list)
+```
+
+在python中，列表变量的调用+=本质上实在执行列表变量的extend方法，不会修改变量的引用。
+
+47、缺省参数
+
+定义函数时，可以给某个参数指定一个默认值，具有默认值的参数就叫做缺省参数
+调用函数时，如果没有传入缺省参数的值，则在函数内部使用定义函数时指定的参数默认值
+函数的缺省参数，将常见的值设置为参数的缺省值，从而简化函数的调用
+
+```python
+gl_list = [6, 3, 9]
+
+# 默认按照升序排序 - 可能更多一些
+gl_list.sort()
+# 如果需要降序排列，需要执行reverse参数
+gl_list.sort(reverse=True)
+print(gl_list)
+
+```
+
+在函数定义时，参数后面使用赋值语句，可以指定参数的缺省值。
+
+```python
+def print_info(name, gender=True):
+    """
+
+    :param name: 班上同学的姓名
+    :param gender: True 男生 False 女生
+    """
+    gender_text = "男生"
+    if not gender:
+        gender_text = "女生"
+    print(("%s 是 %s") % (name, gender_text))
+
+# 假设半生同学男生居多
+# 提示：在指定缺省参数的默认值时，应该使用最常见的值作为默认值！
+print_info("小米")
+print_info("老王")
+print_info("小美", False)
+```
+
+缺省参数，需要使用最常见的值作为默认值！
+
+如果一个参数的值不能确定，则不应该设置默认值，具体的数值在调用函数时，由外界传递！
+
+ 缺省参数应该在参数列表的末尾；如果有多个缺省参数，需要指定参数名，这样解释器才能够知道对应关系。
+
+48、多值参数
+
+有时候可能一个函数能够处理的参数个数是不确定的，这个时候就可以使用多值参数。
+Python中有两种多值参数，参数名前面增加一个*可以接收元组，两个 *可以接收字典
+一般在给多值参数命名时，习惯使用以下两个名字
+*args --存放元组参数。前面有一个 *
+**kwargs --存放字典参数，前面有两个 *
+args是arguments的缩写，有变量的含义
+kw是keyword的缩写，kwargs可以记忆键值对参数
+
+```python
+def demo(num, *args, **kwargs):
+    print(num)
+    print(args)
+    print(kwargs)
+
+
+demo(1, 2, 3, 4, 5, name="小明", age=18, gender=True)
+```
+
+结果：
+
+```
+1
+(2, 3, 4, 5)
+{'age': 18, 'gender': True, 'name': '小明'}
+```
+
+```python
+# 定义一个函数可以接收任意个整数，返回累加结果
+def sum_numbers(*args):
+
+    num = 0
+    print(args)
+    # 循环遍历
+    for n in args:
+        num += n
+
+    return  num
+
+
+result = sum_numbers(1, 2, 3, 4, 5)
+print(result)
+```
+
+拆包
+
+```python
+def demo(*args, **kwargs):
+
+    print(args)
+    print(kwargs)
+
+
+# 元组变量/字典变量
+gl_nums = (1, 2, 3)
+gl_dict = {"name": "小明", "age": 18}
+
+# demo(gl_nums, gl_dict)
+# 拆包语法
+# demo(*gl_nums, **gl_dict)
+demo(1, 2, 3, name="小明", age=18)
+```
+
+49、递归
+
+一个函数内部调动自己，就叫递归。
+函数内部代码相同，只针对参数不同，处理的结果不同
+当参数满足一个条件时，函数不再执行。这个非常重要，通常被称为递归的出口，否则会出现死循环。
+
+```python
+def sum_number(num):
+    print(num)
+    # 递归的出口，当参数满足条件时，不再执行函数
+    if num == 1:
+        return
+    sum_number(num - 1)
+
+
+sum_number(3)
+```
+
+递归案例，计算数字累加
+
+```python
+# 定义一个函数 sum_numbers
+# 能够接收一个 num 的整数参数
+# 计算1+2+... num 的结果
+
+
+def sum_number(num):
+
+    # 出口
+    if num == 1:
+        return 1
+    # 数字的累加 num + (1...num -1)
+    temp = sum_number(num -1)
+    return num + temp
+
+
+result = sum_number(100)
+print(result)
+
+```
+
+递归是一个变成技巧，在处理不确定的循环条件时，非常有用，比如遍历文件目录。
