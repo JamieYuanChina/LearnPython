@@ -388,4 +388,47 @@ xtq.fly()
 
 10、多继承
 
-401
+子类继承多个父类，拥有所有父类的属性和方法，就是所继承。
+
+```python
+class A:
+    def test(self):
+        print("A -- test 方法")
+
+
+class B:
+    def demo(self):
+        print("demo 方法")
+
+    def test(self):
+        print("B -- test 方法")
+
+# 如果不同父类存在同名的方法，尽量避免使用多继承。
+class C(B, A):
+    pass
+
+c = C()
+
+c.demo()
+c.test()
+
+# 确定C类调用方法的顺序,注意这里的C是类，不是对象。 object类是所有类的'祖宗类'
+print(C.__mro__)
+```
+
+object 是Python为所有对象提供的基类，提供了一些内置的属性和方法，可以使用dir函数查看。
+所有一object为基类的类叫做新式类，不以object为基类的类叫做经典类，不推荐使用经典类。
+在Python3中，如果不指定基类，默认一object为基类，所以Python3中所有的类都是新式类。
+在Python2中，如果不指定基类，则不会一object为基类。
+新式类和经典类在多继承时会影响到方法的搜索顺序
+为了保证编写的代码能够同时在Python3和Python2中运行，今后定义类时如果没有父类，建议统一继承自object
+
+class 类名(ojbect):
+
+11、多态
+
+不同的子类对象，调用相同的父类方法，产生不同的执行结果。
+多态可以增加代码的灵活度
+以继承和重写父类方法为前提
+是调用方法的技巧，不会影响到类的内部设计。
+
