@@ -75,4 +75,37 @@ while True:
 pygame.quit()
 ```
 
-468
+绘制背景图像和英雄
+
+电脑中的游戏一般在60帧/秒以上才能保证高品质的动画效果。
+程序中应该有一个无限循环，叫做游戏循环，保证游戏连续。
+游戏的框架：分为初始化和游戏循环两大部分。
+初始化包括：设置游戏窗口，绘制图像初始位置，设置游戏时钟
+游戏循环包括：设置刷新帧率，检测用户交互，更新所有图像位置，更新屏幕显示。
+
+```python
+import pygame
+
+pygame.init()
+
+# 创建游戏窗口
+screen = pygame.display.set_mode((480, 700))
+# 加载图像数据
+bg = pygame.image.load("./images/background.png")
+hero = pygame.image.load("./images/me1.png")
+# 绘制图像
+screen.blit(bg, (0, 0))
+screen.blit(hero, (200, 500))
+# 更新显示区
+pygame.display.update()
+# 创建时钟对象
+clock = pygame.time.Clock()
+
+while True:
+    clock.tick(60)
+
+pygame.quit()
+```
+
+474
+
