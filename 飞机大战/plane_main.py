@@ -12,12 +12,16 @@ class PlaneGame(object):
         print("游戏初始化")
         # 创建游戏的窗口
         self.screen = pygame.display.set_mode(SCREEN_RECT.size)
+        # 修改窗口标题
+        pygame.display.set_caption('飞机大战')
         # 创建游戏的时钟
         self.clock = pygame.time.Clock()
         # 调用私有方法，创建精灵和精灵组
         self.__create_sprites()
         # 设置定时器事件-- 创建敌机 1s
         pygame.time.set_timer(CREATE_ENMEY_EVENT, 1000)
+        # 创建英雄发射子弹事件
+        pygame.time.set_timer(HERO_FIRE_EVENT, 500)
 
     # 定义私有方法，创建精灵
     def __create_sprites(self):
@@ -56,6 +60,9 @@ class PlaneGame(object):
                 enemy = Enemy()
                 # 将敌机精灵添加到精灵组
                 self.enemy_group.add(enemy)
+            elif event.type == HERO_FIRE_EVENT:
+                # 发射子弹
+                self.hero.fire()
             # 使用事件监听捕获键盘的方式，如果一直按下按键，不会触发多次按键事件
             # elif event.type == pygame.KEYDOWN and event.key == pygame.K_RIGHT:
             #     print("向右移动...")
@@ -63,14 +70,23 @@ class PlaneGame(object):
         key_pressed = pygame.key.get_pressed()
         # 判断元组中对应的按键索引值 1
         if key_pressed[pygame.K_RIGHT]:
-            self.hero.speed = 2
+            self.hero.speed = 4
         elif key_pressed[pygame.K_LEFT]:
-            self.hero.speed = -2
+            self.hero.speed = -4
         else:
             self.hero.speed = 0
 
     def __check_collide(self):
-        pass
+        # 子弹摧毁敌机
+        pygame.sprite.groupcollide(self.hero.bullets, self.enemy_group, True, True)
+        # 敌机撞毁英雄
+        enemies  = pygame.sprite.spritecollide(self.hero, self.enemy_group, True)
+        # 判断列表是否有内容
+        if len(enemies) > 0:
+            # 让英雄牺牲
+            self.hero.kill()
+            # 游戏结束
+            PlaneGame.__game_over()
 
     def __update_sprites(self):
         self.back_group.update()
@@ -79,10 +95,13 @@ class PlaneGame(object):
         self.enemy_group.draw(self.screen)
         self.hero_group.update()
         self.hero_group.draw(self.screen)
+        self.hero.bullets.update()
+        self.hero.bullets.draw(self.screen)
 
     @staticmethod
     def __game_over():
         # 游戏结束
+        print("游戏结束")
         pygame.quit()
         exit()
 
