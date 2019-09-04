@@ -339,6 +339,12 @@ del name_list
 30、关键字，函数，方法
 
 Python中有33个关键字，在ipython中import keyword，打印输出，print(keyword.kwlist)
+
+| and    | as   | assert | break  | class | continue | def    | elif     | else | except | finally |
+| ------ | ---- | ------ | ------ | ----- | -------- | ------ | -------- | ---- | ------ | ------- |
+| for    | from | if     | import | in    | is       | lambda | not      | or   | pass   | raise   |
+| return | try  | while  | with   | yield | del      | global | nonlocal | True | False  | None    |
+
 关键字后面不需要使用括号。
 函数封装了独立的功能，可以直接调用，必须送括号。必须死记硬背
 方法需要通过对象来调用，不需要死记硬背。
