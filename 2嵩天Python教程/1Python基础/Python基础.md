@@ -58,24 +58,61 @@ turtle.fd(150)
 ```
 
 turtle.penup()抬起画笔，别名turtle.pu()
-
 turgle.pendown()l落下画笔,别名turtle.pd()
-
 turtle.pensize(width)设置画笔宽度，别名 turtle.width(width)
-
 turtle.pencolor(“purple”)设置颜色
-
 turtle.pencolor(0.63, 0.13, 0.94)
-
 turtle.forward(d)  向前走直线，别名turtle.fd(d)
-
-turtle.circle(r, extent=None)，根据半径r绘制 extent角度的弧形。默认圆心在海龟左侧距离位置。
-
+turtle.circle(r, extent=None)，根据半径r绘制 extent角度的弧形。默认圆心在海龟左侧。
 turtle.done()保持窗口
 
+3、整数
 
+pow(x,y)函数，计算x^y^ 。
+浮点数判等于使用rount(x,d)进行辅助。即对x进行四舍五入，d为小数截取位数。
+使用e或者E作为幂的符号，以10为基数格式如下：
+<a>e<b> 表示a*10^b^
+python支持虚数4+5j
+x //y整数除功能，10//3结果为3
+x%y余数，模运算10%3结果是1
+x**y幂运算，x的y次幂
+abs(x) 取绝对值
+divmod(x,y)商余，同时输出商和余数，divmod(10,3)结果(3, 1)
+pow(3,pow(3,99))  幂余，
+round(x[,d]) 四舍五入，d是保留的小数位。
+max(x1,x2,...,xn)
+min(x1,x2,...,xn)
 
+int(x),将x变成整数，舍弃小舒部分，可以将字符串转换为数字。
+float(x),变成浮点数，增加小舒部分，可以将字符串转换为数字
+complex(x)变成复数，增加虚数部分，可以将字符串转换为数字
 
+4、字符串
 
+字符串处理函数
+len(x)计算字符串长度
+str(x)把数组转换为字符串
+hex(x)或者oct(x)转换为十六进制或者八进制
+chr(u) u为Unicode编码，返回起对应的字符
+ord(x)x为字符，返回对应的UNICODE编码
+
+UNICODE编码从0到1114111(0x10FFFF)空间每个编码对应一个字符。
+
+```
+>>> "1 + 1 = 2 " + chr(10004)
+'1 + 1 = 2 ✔'
+```
+
+字符串处理方法
+
+str.lower()或者str.upper()返回字符串副本，全部大些或者小写
+str.split(sep=None)返回一个列表，由str根据sep被分割的组成部分。
+str.count(sub)返回子串sub在str中出现的次数
+str.replace(old, new)替换字符串
+str.center(width[,fillchar]) "python".center(20,"="),结果‘= = = = = = = python= = = = = = =’
+str.strip(chars)从str中去掉其左侧和右侧chars中列出的字符
+str.join(iter) 在iter变量除最后元素外每个元素后增加一个str，",".join("12345")结果"1,2,3,4,5",主要用来分隔字符串
+
+75
 
 
