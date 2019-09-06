@@ -113,6 +113,131 @@ str.center(width[,fillchar]) "python".center(20,"="),结果‘= = = = = = = pyth
 str.strip(chars)从str中去掉其左侧和右侧chars中列出的字符
 str.join(iter) 在iter变量除最后元素外每个元素后增加一个str，",".join("12345")结果"1,2,3,4,5",主要用来分隔字符串
 
-75
+5、字符串的槽：
 
+“{ }:计算机{ }的cpu占用率为{}%”.format("2018=10-10","C",10)
 
+槽内部对格式化的配置方式
+
+{<参数序号>:<格式控制标记>}
+
+| :      | <填充>   | <对齐>  | <宽度>  | <,>      | <.精度>  | <类型>   |
+| ------ | ------- | ------ | ------  | -------  | ------- | -------- |
+| 引导符号 | 单个字符 | <左对齐 | 输出宽度 | 千位分隔符 | 小数精度 | 整数类型  |
+|         |        | >右^居中|       |      |     | b,c,d,o,x,X,e,E,F,%|
+
+"{0:=^20}".format("PYTHON")  ；0为format中的序号，:引导符号；=为填充字符；^为中间对齐；20为输出宽度
+
+ 输出为‘= = = = = = = PYTHON = = = = = = =’
+
+“{:10}”.format("BIT")，默认序号0，默认填充空格，默认左对齐 
+
+6、time库
+
+time()获取当前时间戳
+ctime()获取人类可读时间
+gmtime()获取程序可读时间
+
+```
+>>> time.time()
+1567774350.7066476
+>>> time.ctime()
+'Fri Sep  6 20:53:33 2019'
+>>> time.gmtime()
+time.struct_time(tm_year=2019, tm_mon=9, tm_mday=6, tm_hour=12, tm_min=54, tm_sec=5, tm_wday=4, tm_yday=249, tm_isdst=0)
+```
+strftime(tpl.ts)格式化时间戳。
+strptime(str,tpl)根据给定的字符串获得时间戳值。
+
+```
+>>> t = time.gmtime()
+>>> time.strftime("%Y-%m-%d %H:%M:%S",t)
+'2019-09-06 12:57:14'
+```
+
+程序计时函数，perf_counter()
+休眠sleep()
+
+```
+>>> start = time.perf_counter()
+>>> end = time.perf_counter()
+>>> end-start
+23.288312510999276
+>>> time.sleep(4)
+```
+
+文本进度条
+
+```python
+# TextProBarV1.py
+import time
+scale = 10
+print("-----执行开始------")
+for i in range(scale + 1):
+    a = "*" * i
+    b = "." * (scale - i)
+    c = (i/scale) * 100
+    print("{:^3.0f}%[{}->{}]".format(c,a,b))
+    time.sleep(0.5)
+
+print("-----执行结束------")
+```
+
+```python
+# TextProBarV2.py
+import time
+for i in range(101):
+    print("\r{:3}%".format(i),end="")
+    time.sleep(0.1)
+```
+
+```python
+# TextProBarV3.py
+import time
+scale = 50
+print("执行开始".center(scale//2, "-"))
+start = time.perf_counter()
+for i in range(scale + 1):
+    a = "*" * i
+    b = "." * (scale - i)
+    c = (i/scale) * 100
+    dur = time.perf_counter() - start
+    print("\r{:^3.0f}%[{}->{}]{:.2f}s".format(c, a, b, dur), end="")
+    time.sleep(0.1)
+
+print("\n"+"执行结束".center(scale//2, "-"))
+```
+
+7、分支结构
+
+单分支 if
+二分支 if ……else……
+紧凑形式的二分支  ，如果if后面的城西，返回if前面的表达式，否则返回else后面的表达式，类似于C中的 ? :
+
+```
+guess = enal(input()) 
+print("猜{}了".format("对" if guess == 99 else "错"))
+```
+
+多分支 if……elif……else……
+
+条件判断使用的操作符：
+
+| 操作符 | 数学符号 | 描述     |
+| ------ | -------- | -------- |
+| <      | <        | 小于     |
+| <=     | ≤        | 小于等于 |
+| >=     | ≥        | 大于等于 |
+| >      | >        | 大于     |
+| ==     | =        | 等于     |
+| !=     | ≠        | 不等于   |
+
+三个条件保留字
+
+| 操作符以及使用 | 描述                  |
+| -------------- | --------------------- |
+| x and y        | 两个条件 x和y的逻辑与 |
+| x or y         | 两个条件 x和y的逻辑或 |
+| not x          | 条件x的逻辑非         |
+
+95

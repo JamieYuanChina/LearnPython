@@ -14,6 +14,6 @@ Python经常用到的库：
 | pygame  | 游戏编程     |      |
 | keyword | python关键字 |      |
 | turtle | 绘图 |      |
-|         |             |      |
+| time | 事件相关 | 包括延时计时 |
 |         |             |      |
 
