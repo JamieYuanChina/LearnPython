@@ -15,5 +15,8 @@ Python经常用到的库：
 | keyword | python关键字 |      |
 | turtle | 绘图 |      |
 | time | 时间相关 | 包括延时计时 |
-|         |             |      |
+| random | 随机数 |      |
+| pyinstaller | 程序打包 |      |
+|  |  |      |
+|  |              |      |
 

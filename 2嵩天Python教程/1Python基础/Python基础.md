@@ -240,4 +240,236 @@ print("猜{}了".format("对" if guess == 99 else "错"))
 | x or y         | 两个条件 x和y的逻辑或 |
 | not x          | 条件x的逻辑非         |
 
-95
+8、循环
+
+遍历循环，for …… in ……
+
+for i in range(1,6)  # 其中的range函数的作用是产生一个数字序列；
+for line in fi 对文件进行遍历。
+
+无限循环，while 表达式 :
+
+循环保留字：break和continue
+
+9、random库
+
+random包含两类共计8个函数
+
+基本随机数函数：seed(),random()
+
+扩展随机数函数：randint(),getrandbits(),uniform(),randrange(),choice(),shuffle()
+
+seed(a=None) 初始化给定的随机数种子，默认为当前的系统时间。
+
+种子数相同，产生随机数的序列相同。
+
+```python
+>>> import random
+>>> random.seed(10)
+>>> random.random()
+0.5714025946899135
+>>> random.random()
+0.4288890546751146
+```
+
+扩展随机数函数
+
+randint(a,b)生成a,b之间的随机整数
+
+randrange(m,n[,k])生成一个[m,n)之间以K为步长的随机整数
+
+getrandbits(k)生成一个Kbit长的随机整数
+
+uniform(a,b)生成一个[a,b]之间的随机小数
+
+choice(seq)从序列seq中随机选择一个元素
+
+shuffle(seq)将序列seq中的元素随机排列，返回打乱后的序列。
+
+```python
+>>> random.randint(10,100)
+83
+>>> random.randrange(10,100,10)
+10
+>>> random.getrandbits(16)
+13506
+>>> random.uniform(10,100)
+51.632245728365426
+>>> random.choice([1,2,3,4,5,6,7,8,9])
+8
+>>> s=[1,2,3,4,5,6,7,8,9];random.shuffle(s);print(s)
+[8, 7, 9, 3, 5, 2, 4, 1, 6]
+```
+
+如果多行代码需要放在一行，那么每一个语句后面增加分号即可。
+
+10、圆周率的计算
+
+圆周率近似计算公式
+
+```python
+# CalPiV1.py
+pi = 0
+N = 100
+for k in range(N):
+    pi += 1/pow(16, k) * (4/(8*k+1) - 2/(8*k+4) - 1/(8*k+5) - 1/(8*k+6))
+print("圆周率值是：{}".format(pi))
+
+```
+
+蒙特卡洛方法计算圆周率
+
+```python
+# CalPiV2.py
+from random import random
+from time import  perf_counter
+DARTS = 1000 * 1000
+hits = 0.0
+start = perf_counter()
+for i in range(1, DARTS+1):
+    x, y = random(), random()
+    dist = pow(x ** 2 + y ** 2, 0.5)
+    if dist <= 1.0:
+        hits = hits + 1
+pi = 4 * (hits/DARTS)
+print("圆周率的值是：{}".format(pi))
+print("运行时间是：{:.5}s".format(perf_counter() - start))
+```
+
+11、函数
+
+lambda函数，一般用于简单表达式定义为函数，正常函数建议使用def定义。
+
+<函数名> = lambda<参数>:<表达式>
+
+```python
+>>> f = lambda x,y:x+y
+>>> f(4,5)
+9
+```
+
+12、绘制七段数码管
+
+```python
+# SevenDigitsDrawV2.py
+import turtle,time
+
+
+def draw_gap():  # 绘制数码管间隔
+    turtle.penup()
+    turtle.fd(5)
+
+
+def draw_line(draw):  # 绘制单段数码管
+    draw_gap()
+    turtle.pendown() if draw else turtle.penup()
+    turtle.fd(40)
+    draw_gap()
+    turtle.right(90)
+
+
+def draw_digit(digit):  # 根据数字绘制七段数码管
+    draw_line(True) if digit in [2, 3, 4, 5, 6, 8, 9] else draw_line(False)
+    draw_line(True) if digit in [0, 1, 3, 4, 5, 6, 7, 8, 9] else draw_line(False)
+    draw_line(True) if digit in [0, 2, 3, 5, 6, 8, 9] else draw_line(False)
+    draw_line(True) if digit in [0, 2, 6, 8] else draw_line(False)
+    turtle.left(90)
+    draw_line(True) if digit in [0, 4, 5, 6, 8, 9] else draw_line(False)
+    draw_line(True) if digit in [0, 2, 3, 5, 6, 7, 8, 9] else draw_line(False)
+    draw_line(True) if digit in [0, 1, 2, 3, 4, 7, 8, 9] else draw_line(False)
+    turtle.left(180)
+    turtle.penup()  # 为绘制后续数字确定位置
+    turtle.fd(20)  # 为绘制后续数字确定位置
+
+
+def draw_data(data):  # 获得要输出的数字
+    turtle.pencolor("red")
+    for i in data:
+        if i == "-":
+            turtle.write("年", font=("Arial", 18, "normal"))
+            turtle.pencolor("green")
+            turtle.fd(40)
+        elif i == "=":
+            turtle.write("月", font=("Arial", 18, "normal"))
+            turtle.pencolor("blue")
+            turtle.fd(40)
+        elif i == "+":
+            turtle.write("日", font=("Arial", 18, "normal"))
+        else:
+            draw_digit(eval(i))
+
+
+def main():
+    turtle.setup(800, 350, 200, 200)
+    turtle.penup()
+    turtle.fd(-300)
+    turtle.pensize(5)
+    draw_data(time.strftime("%Y-%m=%d+", time.gmtime()))
+    turtle.hideturtle()
+    turtle.done()
+
+
+main()
+```
+
+13、Pyinstall库
+
+```shell
+pip install pyinstaller
+pyinstaller -F SevenDigitsDrawV2.py
+```
+
+pyinstaller参数
+
+-h 查看帮助
+
+--clean 清理打包过程中的临时文件
+
+-D ，--onedir 默认值，生成dist文件夹
+
+-F ，--onefile 只生成独立的打包文件
+
+-i <图标文件名.ico> 指定打包程序使用的图标文件
+
+pyinstaller -i curve.ico -F SevenDigitsDrawV2.py
+
+14、科赫雪花
+
+```python
+# KochDrawV2.py
+import turtle
+
+
+def koch(size, n):
+    if n == 0:
+        turtle.fd(size)
+    else:
+        for angel in[0, 60, -120, 60]:
+            turtle.left(angel)
+            koch(size/3, n-1)
+
+
+def main():
+    turtle.setup(800, 600)
+    turtle.penup()
+    turtle.goto(-200, 100)
+    turtle.pendown()
+    turtle.pensize(2)
+    level = 3
+    koch(400, level)  # 三阶科赫曲线
+    turtle.right(120)
+    koch(400, level)  # 三阶科赫曲线
+    turtle.right(120)
+    koch(400, level)  # 三阶科赫曲线
+    turtle.hideturtle()
+    turtle.done()
+
+
+main()
+```
+
+分形几何：康托尔集，希尔宾斯基三角形，门格海绵，龙形曲线，空间填充曲线
+
+15、
+
+138

@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e0603daf-557c-464b-9b24-5beae94bba30" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/TextProBarV1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TextProBarV2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TextProBarV3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CalPiV1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CalPiV2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DigiView.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/KochDrawV1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/KochDrawV2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SevenDigitsDrawV2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Python基础.md" beforeDir="false" afterPath="$PROJECT_DIR$/Python基础.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../README.md" afterDir="false" />
@@ -17,15 +20,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PythonDraw.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="17" selection-start-line="17" selection-end-line="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DayDayup.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -53,11 +47,68 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TextProBarV3.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="266">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CalPiV1.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CalPiV2.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret selection-end-line="14" />
+              <folding>
+                <element signature="e#13#38#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DigiView.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="9" column="14" selection-end-line="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SevenDigitsDrawV2.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="76">
+              <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/KochDrawV1.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="69">
+              <caret line="20" selection-start-line="20" selection-end-line="20" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/KochDrawV2.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -81,13 +132,20 @@
         <option value="$PROJECT_DIR$/TextProBarV2.py" />
         <option value="$PROJECT_DIR$/TextProBarV1.py" />
         <option value="$PROJECT_DIR$/TextProBarV3.py" />
+        <option value="$PROJECT_DIR$/CalPiV1.py" />
+        <option value="$PROJECT_DIR$/CalPiV2.py" />
+        <option value="$PROJECT_DIR$/DigiView.py" />
+        <option value="$PROJECT_DIR$/SevenDigitsDrawV2.py" />
+        <option value="$PROJECT_DIR$/KochDrawV1.py" />
+        <option value="$PROJECT_DIR$/KochDrawV2.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="884" />
-    <option name="width" value="833" />
-    <option name="height" value="816" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="489" />
+    <option name="y" value="141" />
+    <option name="width" value="1088" />
+    <option name="height" value="610" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -95,7 +153,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -107,6 +164,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -126,8 +184,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.TextProBarV3">
-    <configuration name="DayDayup" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.KochDrawV2">
+    <configuration name="CalPiV2" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="1Python基础" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -139,7 +197,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DayDayup.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CalPiV2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -148,7 +206,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="PythonDraw" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="DigiView" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="1Python基础" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -160,7 +218,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PythonDraw.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DigiView.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -169,7 +227,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="TextProBarV1" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="KochDrawV1" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="1Python基础" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -181,7 +239,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TextProBarV1.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/KochDrawV1.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -190,7 +248,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="TextProBarV2" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="KochDrawV2" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="1Python基础" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -202,7 +260,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TextProBarV2.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/KochDrawV2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -211,7 +269,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="TextProBarV3" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="SevenDigitsDrawV2" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="1Python基础" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -223,7 +281,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TextProBarV3.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SevenDigitsDrawV2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -234,11 +292,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.TextProBarV3" />
-        <item itemvalue="Python.TextProBarV2" />
-        <item itemvalue="Python.TextProBarV1" />
-        <item itemvalue="Python.DayDayup" />
-        <item itemvalue="Python.PythonDraw" />
+        <item itemvalue="Python.KochDrawV2" />
+        <item itemvalue="Python.KochDrawV1" />
+        <item itemvalue="Python.SevenDigitsDrawV2" />
+        <item itemvalue="Python.DigiView" />
+        <item itemvalue="Python.CalPiV2" />
       </list>
     </recent_temporary>
   </component>
@@ -256,14 +314,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="884" y="0" width="833" height="816" extended-state="0" />
+    <frame x="1003" y="140" width="1088" height="610" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2920792" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22201318" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.21238938" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.30508474" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -309,7 +368,52 @@
     <entry file="file://$PROJECT_DIR$/TextProBarV3.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CalPiV1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CalPiV2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="14" />
+          <folding>
+            <element signature="e#13#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DigiView.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="14" selection-end-line="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SevenDigitsDrawV2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/KochDrawV1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="20" selection-start-line="20" selection-end-line="20" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/KochDrawV2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
         </state>
       </provider>
     </entry>
