@@ -13,11 +13,13 @@ def koch(size, n):
 
 def main():
     turtle.setup(800, 600)
+    turtle.delay(0)
     turtle.penup()
     turtle.goto(-200, 100)
     turtle.pendown()
     turtle.pensize(2)
-    level = 3
+    turtle.hideturtle()
+    level = 5
     koch(400, level)  # 三阶科赫曲线
     turtle.right(120)
     koch(400, level)  # 三阶科赫曲线

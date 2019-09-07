@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e0603daf-557c-464b-9b24-5beae94bba30" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/CalPiV1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CalPiV2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DigiView.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/KochDrawV1.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/KochDrawV2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SevenDigitsDrawV2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KochDrawV2.py" beforeDir="false" afterPath="$PROJECT_DIR$/KochDrawV2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Python基础.md" beforeDir="false" afterPath="$PROJECT_DIR$/Python基础.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -107,8 +100,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/KochDrawV2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+            <state relative-caret-position="308">
+              <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
             </state>
           </provider>
         </entry>
@@ -141,7 +134,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="489" />
     <option name="y" value="141" />
     <option name="width" value="1088" />
@@ -314,15 +307,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1003" y="140" width="1088" height="610" extended-state="0" />
-    <editor active="true" />
+    <frame x="489" y="141" width="1088" height="610" extended-state="0" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22201318" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.30508474" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.30508474" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -412,8 +404,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/KochDrawV2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        <state relative-caret-position="308">
+          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
         </state>
       </provider>
     </entry>
