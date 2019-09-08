@@ -807,4 +807,69 @@ print(tf.readline())
 tf.close()
 ```
 
-文件的读取：173
+文件的读取：
+
+| 操作方法                 | 描述                                                         |
+| ------------------------ | ------------------------------------------------------------ |
+| < f >.read(size = -1)    | 读入全部内容，如果给出参数，读入前size长度                   |
+| < f >.readline()         | 读入一行内容，如果给出参数，读入改行前size长度               |
+| < f >.readlines(hint=-1) | 读入文件所有行，以每行为元素形成列表，如果给出参数，读入前hint行 |
+
+文件的全文本操作
+
+```python
+fname = input("请输入要打开的文件名称：")
+fo = open(fname,"r")
+txt = fo.read()
+# 对全文txt进行处理
+fo.close()
+```
+
+```python
+fname = input("请输入要打开的文件名称：")
+fo = open(fname,"r")
+txt = fo.read(2)
+while txt != "":
+    # 对txt进行处理
+    txt = fo.read(2)
+fo.close()
+```
+
+文件的逐行处理操作
+
+```python
+fname = input("请输入要打开的文件名称：")
+fo = open(fname,"r")
+for line in fo.readlines():  # 一次读入，逐行处理
+    print(line)
+fo.close()
+```
+```python
+fname = input("请输入要打开的文件名称：")
+fo = open(fname,"r")
+for line in fo:  # 分行读入，逐行处理
+    print(line)
+fo.close()
+```
+
+数据的写入：
+
+
+| 操作方法               | 描述                                           |
+| ---------------------- | ---------------------------------------------- |
+| < f >.write(s)         | 向文件写入一个字符串或者字节流                 |
+| < f >.readlines(lines) | 将一个元素全为字符串的列表写入文件             |
+| < f >.seek(offset)     | 改变当前文件操作指针的位置，                   |
+|                        | offset含义：0-文件开头；1-当前位置；2-文件结尾 |
+
+```python
+fo = open("output.txt","w+")
+ls = ["中国", “法国”, “美国”]
+fo.writelines(ls)
+fo.seek(0)  # 把文件指针设置到文件开头
+for line in fo:
+    print(line)
+fo.close()
+```
+
+176
