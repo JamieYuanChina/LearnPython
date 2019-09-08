@@ -590,4 +590,221 @@ main()
 | ls.remove(x)   | 将列表ls中出现的第一个元素x删除       |
 | ls.reverse()   | 将列表ls中的元素反转                  |
 
-154
+基本统计值计算
+
+```python
+# CalStatisticsV1.py
+
+
+def getNum():  # 获取用户输入数据
+    nums = []
+    iNumber = input("请输入数字(回车退出)： ")
+    while iNumber != "":
+        nums.append(eval(iNumber))
+        iNumber = input("请输入数字(回车退出)： ")
+    return nums
+
+
+def mean(numbers):  # 计算平均值
+    s = 0.0
+    for num in numbers:
+        s = s + num
+    return s/len(numbers)
+
+
+def dev(numbers,mean):  # 计算方差
+    sdev = 0.0
+    for num in numbers:
+        sdev = sdev + (num - mean)**2
+    return pow(sdev / (len(numbers) - 1), 0.5)
+
+
+def median(numbers):  # 计算中位数
+    sorted(numbers)
+    size = len(numbers)
+    if size % 2 == 0:
+        med = (numbers[size//2-1] + numbers[size//2])/2
+    else:
+        med = numbers[size//2]
+    return med
+
+
+n = getNum()
+m = mean(n)
+print("平均值：{}，方差：{:.2}，中位数：{}.".format(m, dev(n, m), median(n)))
+```
+
+字典类型
+
+字典类型是映射的体现，键值对，键是数据索引的扩展，字典是键值对的集合，键值对之间无序，采用大括号{}和dict()创建，键值对使用冒号:表示。
+
+生成空字典 de = {}； type(de)
+
+集合类型也是有大括号表示，注意区分
+
+字典类型操作函数和方法
+
+| 函数或方法         | 描述                                        |
+| ------------------ | ------------------------------------------- |
+| del d[k]           | 删除字典d中键k对应的数据值                  |
+| k in d             | 判断键k是否在字典d中，如果在返回True        |
+| d.keys()           | 返回字典d中所有的键信息                     |
+| d.values()         | 返回字典d中所有的值信息                     |
+| d.items()          | 返回字典d中所有的键值对信息                 |
+| d.get(k,<default>) | 键k存在，返回相应值，不存在返回默认值       |
+| d.pop(k,<default>) | 键k存在，取出相应值，不存在返回默认值       |
+| d.popitem()        | 随机从字典d中取出一个键值对，以元组形式返回 |
+| d.clear            | 删除所有键值对                              |
+| len(d)             | 返回字典d中元素的个数                       |
+
+16、jieba库
+
+jieba分词依靠中文词库。分为精确模式，全模式，搜索引擎模式三中。
+
+jieba常用函数：
+
+| 函数                       | 描述                                               |
+| -------------------------- | -------------------------------------------------- |
+| jieba.lcut(s)              | 精确模式返回一个列表类型的分词结果                 |
+|                            | jieba.lcut("中国是一个伟大的国家")                 |
+|                            | [‘中国’,‘是’,‘一个’,‘伟大’,‘的’,‘国家’]            |
+| jieba.lcut(s,cut_all=True) | 全模式，返回一个列表类型的分词结果，存在冗余       |
+|                            | jieba.lcut("中国是一个伟大的国家", cut_all=True)   |
+|                            | [‘中国’,‘国是’,‘一个’,‘伟大’,‘的’,‘国家’]          |
+| jieba.lcut_for_search(s)   | 搜索引擎模式，返回一个列表类型的分词结果，存在冗余 |
+|                            | jieba.lcut_for_search("中华人民共和国是伟大的")    |
+|                            | ['中华','华人','人民','共和','国','是','伟大','的] |
+| jieba.add_word(w)          | 向分词词典增加新词w                                |
+|                            | jieba.add_word("蟒蛇语言")                         |
+
+jieba的安装
+
+1，Python 2.x 下的安装
+全自动安装 ：easy_install jieba 或者 pip install jieba 
+半自动安装 ：先下载http://pypi.python.org/pypi/jieba/ ，解压后运行python setup.py install
+手动安装 ：将jieba目录放置于当前目录或者site-packages目录 
+通过import jieba 来引用
+
+2，Python 3.x 下的安装
+目前master分支是只支持Python2.x 的 
+Python3.x 版本的分支也已经基本可用： https://github.com/fxsjy/jieba/tree/jieba3k 
+
+git clone https://github.com/fxsjy/jieba.git
+git checkout jieba3k
+sudo python3 setup.py install
+
+文本词频统计
+
+```python
+# CalHamletV1.py
+
+
+def get_text():
+    txt = open("hamlet.txt", "r").read()
+    txt = txt.lower()
+    for ch in '!"#$%&()*+,-./:;<=>?@[\\]^_‘{|}~':
+        txt = txt.replace(ch, " ")
+    return txt
+
+
+hamlet_txt = get_text()
+words = hamlet_txt.split()
+counts = {}
+for word in words:
+    counts[word] = counts.get(word, 0) + 1
+items = list(counts.items())
+items.sort(key=lambda x:x[1], reverse=True)
+for i in range(10):
+    word, count = items[i]
+    print("{0:<10}{1:>5}".format(word,count))
+
+```
+
+三国演义任务出场统计：
+
+```python
+# CalThreekingdomsV2.py
+
+import jieba
+txt = open("threekingdoms.txt", "r", encoding="utf-8").read()
+excludes = {"将军", "却说", "荆州", "二人", "不可", "不能", "如此"}
+words = jieba.cut(txt)
+counts = {}
+for word in words:
+    if len(word) == 1:
+        continue
+    elif word == "诸葛亮" or word == "孔明曰":
+        rword = "孔明"
+    elif word == "关公" or word == "云长":
+        rword = "关羽"
+    elif word == "玄德" or word == "玄德曰":
+        rword = "刘备"
+    elif word == "孟德" or word == "丞相":
+        rword = "曹操"
+    else:
+        rword = word
+    counts[rword] = counts.get(rword, 0) + 1
+for word in excludes:
+    del counts[word]
+items = list(counts.items())
+items.sort(key=lambda x:x[1],reverse=True)
+for i in range(10):
+    word, count = items[i]
+    print("{0:<10}{1:>5}".format(word, count))
+```
+
+17、文件和数据格式化
+
+文件是数据的抽象和集合，是存储在辅助存储器上的数据序列，是数据的一种存储形式，通常分为文本文件和二进制文件。
+
+文件处理步骤：打开-操作-关闭
+
+读文件：
+a.read(size)
+a.readline(size)
+a.readlines(hint)
+写文件：
+a.write(s)
+a.writelines(lines)
+a.seek(offset)
+
+文件的打开
+
+<变量名> = open(<文件名>, <打开模式>)
+
+文件句柄     文件路径和名称   文本or二进制，读or写
+
+在windows中使用反斜杠\分隔路径，但是在Python中这个反斜杠表示转义，所以通常使用斜杠替代，或者使用两个反斜杠进行转义。
+
+例如 ： D:\PYE\f.txt  在python中可以"D:/PYE/f.txt"或者  "D:\ \PYE\ \f.txt" 或者使用相对路径"./PYE/f.txt"
+
+打开模式：
+
+| 文件打开的模式 | 描述                                                      |
+| -------------- | --------------------------------------------------------- |
+| "r"            | 只读模式，默认值，入股欧文件不存在，返回FileNotFouneError |
+| "w"            | 覆盖写模式，文件不存在则创建，存在则完全覆盖              |
+| "x"            | 创建写模式，文件不存在则创建，存在则返回FileExistsError   |
+| "a"            | 追加写模式，文件不存在则创建，存在则在文件最后追加内容    |
+| "b"            | 二进制文件模式                                            |
+| "t"            | 文本文件模式，默认值                                      |
+| ”+“            | 与r/w/x/a一同使用，在原功能基础上增加同时读写功能         |
+
+f = open("f.txt")  -文本形式，只读模式，默认
+
+f = open("f.txt", "rt") -文本形式，只读
+
+f = open("f.txt", "w")  - 文本形式，覆盖写
+
+f = open("f.txt", "a+") -文本形式，追加写模式+读文件
+
+文件关闭：<变量名>.close()
+
+```
+# 文本形式打开文件
+tf = open("f.txt", "rt")
+print(tf.readline())
+tf.close()
+```
+
+文件的读取：173

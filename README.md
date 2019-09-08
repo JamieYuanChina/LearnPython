@@ -13,10 +13,10 @@ Python经常用到的库：
 | random  | 随机数产生   |      |
 | pygame  | 游戏编程     |      |
 | keyword | python关键字 |      |
-| turtle | 绘图 |      |
+| turtle | 绘图 | python2.x |
 | time | 时间相关 | 包括延时计时 |
 | random | 随机数 |      |
 | pyinstaller | 程序打包 |      |
-|  |  |      |
+| jieba | 中文分词 | python2.x |
 |  |              |      |
 
