@@ -993,4 +993,188 @@ wordcloud库把词云当做一个WordCloud对象
 
 wordcloud.WordCloud()代表一个文本对应的词云，可以根据文本中词语出现的频率等参数绘制词云，绘制词云的形状、尺寸和颜色都可以设定。
 
-191
+w = wordcloud.WordCloud()
+
+| 方法                | 描述                               |
+| ------------------- | ---------------------------------- |
+| w.generate(txt)     | 向WordCloud对象w中加载文本txt      |
+| w.to_file(filename) | 将词云输出为图像文件，png或jpg格式 |
+
+分三个步骤：配置对象参数；加载词云文本；输出词云文件。
+
+```python
+import wordcloud
+c = wordcloud.WordCloud()
+c.generate("wordcloud by Python")
+c.to_file("pywordcloud.png")
+```
+
+生成词云图片，默认宽度400像素，高度200像素。
+
+词云库处理过程：
+
+1分隔：以空格分隔单词
+2统计：单词出现次数并过滤
+3字体：根据统计配置字号
+4布局：颜色环境尺寸
+
+c = wordcloud.WordCloud(<参数>)
+
+| 参数             | 描述                                              |
+| ---------------- | ------------------------------------------------- |
+| width            | 指定词云对象生成图片的宽度，默认400像素           |
+| height           | 指定词云对象生成图片的高度，默认200像素           |
+| min_font_size    | 指定词云中字体的最小字号，默认4号                 |
+| max_font_size    | 指定次云中字体的最大字号，根据高度自动调节        |
+| font_setp        | 指定词云中字体号的步进间隔，默认为1               |
+| font_path        | 指定字体文件的路径，默认None                      |
+|                  | w=wordcloud.WordCloud(font_path="msyh.ttc")       |
+| max_words        | 指定词云显示的最大单词数量，默认200               |
+| stop_words       | 指定词云的排除词列表，即不显示的单词列表          |
+| mask             | 指定词云形状，默认Wie长方形，需要引用imread()函数 |
+| background_color | 指定词云图片背景颜色，默认为黑色                  |
+
+英文词云案例
+
+```Python
+import wordcloud
+txt = "life is short, you need python"
+w = wordcloud.WordCloud(background_color = "white")
+w.generate(txt)
+w.to_file("pywcloud.png")
+```
+
+中文词云案例：
+
+```python
+import jieba
+import wordcloud
+txt = "程序设计语言是计算机能够理解和识别用户操作意图的一中交互体系，\
+它按照戈丁规则组织计算机指令，使计算机能够自动进行跟中运算处理。"
+w = wordcloud.WordCloud(width = 1000,font_path="msyh.ttc",height=700)
+w.generate(" ".join(jieba.cut(txt)))
+w.to_file("pywcloud.png")
+```
+
+政府工作报告词云见案例GovRptWordCloudv1.py
+
+竞技分析案例见MatchAnalysis.py
+
+更大的python世界
+
+python社区： https://pypi.org 在这里可以搜索任何主题的python第三方库。
+
+pypi:python package index
+
+例如开发区块链相关程序，可以在pypi.org 搜索blockchain
+
+pip安装工具
+
+常用pip命令
+
+pip install <第三方库名>     安装
+pip install -U <第三方库名>  更新
+pip uninstall <第三方库名>  卸载
+pip download <第三方库名>  下载
+pip show <第三方库>  显示
+pip search <关键词>  搜索
+pip list  列出本机安装的第三方库
+使用pip安装可以解决99%的库问题。
+
+继承安装方法
+
+Anaconda  https://www.continuum.io
+
+支持近800个第三方库，包含多个主流工具，适合数据计算领域开发。
+
+文件安装方法
+
+http://www.lfd.uci.edu/~gohlke/pythonlibs    
+
+OS库
+
+os库提供通用的，基本的操作系统交互功能，有几百个函数。
+os.path子库以path为入口，用于曹邹和处理文件路径
+import os.path
+import os.path as op
+
+| 函数                       | 描述                                                |
+| -------------------------- | --------------------------------------------------- |
+| os.path.abspath(path)      | 返回path在当前系统中的绝对路径                      |
+| os.path.normpath(path)     | 归一化path的表示形式，统一用 \ \ 分隔路径           |
+| os.path,relpath(path)      | 返回当前程序与文件之间的相对路径(relative path)     |
+| os.path.dirname(path)      | 返回path中的目录名称                                |
+| os.path.basename(path)     | 返回paht中最后的文件名                              |
+| os.path.join(path, *paths) | 组合path与paths，返回一个路径字符串                 |
+| os.path.exists(path)       | 判断path对应文件或者目录是否存在，返回True或者False |
+| os.path.isfile(path)       | 是否是文件                                          |
+| os.path.isdir(path)        | 是否是目录                                          |
+| os.path.getatime(path)     | 目录或文件上一次访问时间                            |
+| os.path.getmtime(path)     | 修改时间                                            |
+| os.path.getctime(path)     | 创建时间                                            |
+| os.path.getsize(path)      | 返回对应文件的大小，一字节为单位                    |
+
+进程管理
+
+os.system(command)
+
+```
+import os
+os.system("c:\\windows\\System32\\calc.exe")
+os.system("c:\\windows\\System32\\mspaint.exe d:\\grwordcloud.png")
+```
+
+环境参数
+
+| 函数           | 描述                                        |
+| -------------- | ------------------------------------------- |
+| os.chdir(path) | 修改当前程序操作的路径                      |
+| os.getcwd()    | 返回程序当前路径                            |
+| os.getlogin()  | 获得当前系统登录用户名                      |
+| os.cpu_count() | 获得当前系统cpu数量                         |
+| os.urandom(n)  | 获得n个字节长度的随机字符串，通常用于加解密 |
+
+第三方库自动安装
+
+常用第三方库列表
+
+| 库名           | 用户                         | pip安装指令                |
+| -------------- | ---------------------------- | -------------------------- |
+| NumPy          | N维数据表示和运算            | pip install numpy          |
+| Matplotlib     | 二维数据可视化               | pip install matplotlib     |
+| PIL            | 图像处理                     | pip install pillow         |
+| Scikit-Learn   | 机器学习和数据挖掘           | pip install sklearn        |
+| Request        | HTTP协议访问以及网络爬虫     | pip install requests       |
+| Jieba          | 中文分词                     | pip install jieba          |
+| Beautiful Soup | HTML和XML解析器              | pip install beautifulsoup4 |
+| Wheel          | python第三方文件打包工具     | pip install wheel          |
+| PyInstall      | 打包python源文件为可执行文件 | pip install pyinstaller    |
+| Django         | python最流行的web开发框架    | pip install django         |
+| Flask          | 轻量级web开发框架            | pip install flask          |
+| WeRoBot        | 微信机器人开发框架           | pip install werobot        |
+| SymPy          | 数学符号计算工具             | pip install sympy          |
+| Pandas         | 高效数据分析和计算           | pip install pandas         |
+| Networdx       | 复杂网络和图结构的建模分析   | pip install networkx       |
+| PyQt           | 基于Qt的专业级GUI开发框架    | pip install pyqt5          |
+| PyOpenGl       | 多平台OpenGL开发接口         | pip install pyopengl       |
+| PyPDF2         | PDF文件内容提取以及处理      | pip install pypdf2         |
+| docopt         | Python命令行解析             | pip install docopt         |
+| PyGame         | 简单小游戏开发框架           | pip install pygame         |
+
+```python
+# BatchInstall.py
+import os
+libs = {"numpy", "matplotlib", "pillow", "sklearn", "requests",\
+        "jieba", "beautifulsoup4", "wheel", "networkx", "sympy",\
+        "pyinstaller", "django", "flask", "werobot", "pyqt5",\
+        "pandas", "pyopengl", "pypdf2", "docopt", "pygame"}
+try:
+    for lib in libs:
+        os.system("pip3 install " + lib)
+        print("Successful")
+except:
+    print("Failed somehow")
+
+```
+
+223
