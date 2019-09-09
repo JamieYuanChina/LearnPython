@@ -18,5 +18,10 @@ Python经常用到的库：
 | random | 随机数 |      |
 | pyinstaller | 程序打包 |      |
 | jieba | 中文分词 | python2.x |
-|  |              |      |
+| wordcloud | 词云展示库 |      |
+| | | |
+| | | |
+| | | |
+| | | |
+| | | |
 

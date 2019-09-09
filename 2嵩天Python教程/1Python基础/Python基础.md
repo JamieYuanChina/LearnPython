@@ -872,4 +872,125 @@ for line in fo:
 fo.close()
 ```
 
-176
+自动轨迹绘制
+
+```python
+#AutoTraceDraw.py
+import turtle as t
+t.title("自动轨迹绘制")
+t.setup(800, 600,0,0)
+t.pencolor("red")
+t.pensize(5)
+# 数据读取
+datals = []
+f = open("data.txt")
+for line in f:
+    line = line.replace("\n","")
+    detals.append(list(map(eval, line.split(","))))
+f.close()
+# 自动绘制
+for i in range(len(detals)):
+    t.pencolor(datals[i][3], datals[i][4], datals[i][5])
+    t.fd(datals[i][0])
+    if datals[i][2]
+        t.right(datals[i][2])
+    else:
+        t.left(datals[i][2])
+ 
+```
+data.txt
+```
+300,0,144,1,0,0
+300,0,144,0,1,0
+300,0,144,0,0,1
+300,0,144,1,1,0
+300,0,108,0,1,1
+184,0,72,1,0,1
+184,0,72,0,0,0
+184,0,72,0,0,0
+184,0,72,0,0,0
+184,1,72,1,0,1
+184,1,72,0,0,0
+184,1,72,0,0,0
+184,1,72,0,0,0
+184,1,72,0,0,0
+184,1,72,0,0,0
+```
+
+数据组织的维度
+
+一维数据有对等关系的有序或无序数据构成，采用线性方式组织，对应表、数组、集合等概念。
+二维数据是由多个一维数据构成，是一维数据的组合形式，
+多维数据是由一维或者二维数据在新维度上的扩展形成。
+高位数据仅利用最基本的二元关系展示数据间的复杂结构。
+一维数据的表示，如果数据间有序，使用列表类型，for循环可以遍历数据，进而对数据处理。
+一维数据如果无序，可以使用集合表示，同样使用for循环遍历。
+一维数据的存储，通常采用空格，逗号，$符号等特殊字符间隔，不换行。缺点是数据中不能有间隔采用的字符。
+
+```python
+#一维数据的读入处理
+txt = open(fname).read()
+ls = txt.split()  # 分割符号可以使用"," "$"等
+f.close()
+```
+
+```python
+# 一维数据的写入处理
+ls = ["中国","美国", "日本"]
+f = open(fname,"w")
+f.write(" ".join(ls))  # 采用空格分隔方式将数据写入文件
+f.close()
+```
+
+二维数据
+
+二维数据可以使用列表进行表示，使用两层for循环进行遍历每一个元素。
+外层列表中每个元素可以对应一行或者一列。
+一二维数据的python表示：数据维度是数据的组织形式
+一维数据：列表和集合类型
+    [0.1396, 3.1659]  数据间有序
+    {0.1396, 3.1659} 数据间无序
+二维数据：列表类型
+    [ [0.1396,  3.1659], [0.1396,  3.1659] ]
+二维数据的存储，通用.csv格式，逗号分隔的多行文本格式，无空行，空数据也需要使用逗号占位。
+一般搜索习惯，ls [ row ] [ column ]，采用先行后列方式。外层列表每个元素是一行。
+二维数据的读入处理
+
+```python
+# 从csv格式文件读入数据
+fo = open(fname)
+ls = []
+for line in fo:
+    line = line.replace("\n","")
+    ls.append(line.split(","))
+fo.close()
+```
+
+```python
+# 将数据写入csv格式文件
+ls = [[],[],[]]  # 二维列表
+fo = open(fname, "w")
+for item in ls:
+    f.write(",".join(item) + "\n")
+fo.close()
+```
+
+```python
+# 二维数据的逐一处理，采用二层循环
+ls = [[1, 2],[3, 4],[5, 6]]  # 二维列表
+for row in ls:
+    forcolumn in row:
+        print(column)
+```
+
+词云展示库wordcloud
+
+```
+pip install wordcloud
+```
+
+wordcloud库把词云当做一个WordCloud对象
+
+wordcloud.WordCloud()代表一个文本对应的词云，可以根据文本中词语出现的频率等参数绘制词云，绘制词云的形状、尺寸和颜色都可以设定。
+
+191
