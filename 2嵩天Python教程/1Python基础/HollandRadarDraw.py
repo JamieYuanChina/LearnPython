@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib
 matplotlib.rcParams['font.family'] = 'SimHei'
+matplotlib.rcParams['font.sans-serif'] = ['KaiTi']
 radar_labels = np.array(['研究型(I)', '艺术型(A)', '社会型(s)', '企业型(E)', '常规型(C)', '现实型(R)'])
 data = np.array([[0.40, 0.32, 0.35, 0.30, 0.30, 0.88],
                  [0.85, 0.35, 0.30, 0.40, 0.40, 0.30],
