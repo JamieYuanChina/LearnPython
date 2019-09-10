@@ -1177,4 +1177,71 @@ except:
 
 ```
 
-223
+ 从数据处理到人工智能
+
+数据表示->数据清洗->数据统计->数据可视化->数据挖掘->人工智能
+
+python库之数据分析
+
+Numpy:表达N维数组的最基础库，使用C语言实现，Python接口，计算速度优异，是Python数据分析以及科学计算的基础库，支撑Pandas等库，提供直接的矩阵运算，广播函数，线性代数等功能。Numpy可以直接对数据进行平方等操作，不需要对数组中每一个数据进行分布操作。减少了for循环的使用。
+
+pandas库是python数据分析高层次应用库提供了简单易用的数据结构和数据分析工具，理解数据类型和索引的关系，操作索引即操作数据，是Python最主要的数据分析功能库，基于Numpy开发。Series = 索引 + 一维数据；DataFrame = 行列索引 + 二维数据
+
+SciPy：数学，科学和工程计算功能库，提供了一批数学而算法以及工程数据运算功能，类似matlab，可用于如傅里叶变换，信号处理等应用，是Python最主要的科学计算功能库，基于NumPy开发。
+
+Matplotlib:高质量的二位数据可视化功能库，提供超过100种数据可视化展示效果，通过matplotlib.pyplot字库调用各个可视化效果，是最主要的数据可视化功能库，基于Numpy开发。
+
+Seaborm:统计类数据可视化功能库，提供了一批高层次的统计类数据可视化展示效果，主要展示数据间分布，分类和线性关系等内容，基于Matplotlib开发，支持Numpy和Pandas
+
+Mayavi:三维可续数据可视化功能库，提供了一批简单易用的3D科学计算数据可视化展示效果，目前版本是Mayavi2，三维可视化最主要的第三方库，支持Numpy，TVTK，Traits，Envisage等第三方库
+
+pyPDF2：用来处理pdf文件的工具集，提供了一批处理PDF文件的计算功能，支持获取信息，分隔/整合文件，加密解密等等。 完全使用Python语言实现，不需要额外依赖，功能稳定。
+
+```python
+from PyPDF2 import PdfFileReader, PdfFileMerger
+merger = PdfFileMerger()
+input1 = open("document1.pdf", "rb")
+input2 = open("document2.pdf", "rb")
+merger.append(fileobj = input1, pages = (0,3))
+merger.merge(position = 2, fileobj = input2, page = (0, 1))
+output = open("document-output.pdf", "wb")
+merger.write(oupput)
+```
+
+NLTK:自然语言文本处理第三方库，提供了一批简单易用的自然语言文本处理功能，支持语言文本分类，标记，语法句法予以分析等，是最优秀的Python自然语言处理库
+
+```python
+from nltk.corpus import treebank
+t = treebank.parsed_sents("wsj_0001.mrg")[0]
+t.draw()
+```
+
+Python-docx:创建或更新Microsoft Word 文件的第三方库，提供创建或更新.doc,docx等文件计算功能，增加并且配置段落，图片，表格，文字等，功能全面
+
+```python
+from docx import Document
+document = Document()
+document.add_heading("Document Title", 0)
+p = document.add_paragraph("A plain paragraph having some")
+document.add_page_break()
+document.save("dome.docx")
+```
+
+Scikit_learn:机器学习方法工具，提供一批统一化的机器学习方法功能接口，提供聚类，分类，回归，强化学习等计算功能，是机器学习最基本最优秀的Python第三方库。
+
+TensorFlow:AlphaGo背后的机器学习计算框架，谷歌公司推动的开源机器学习框架，将数据留图作为基础，图节点代表运算，边代表张量，应用机器学习方法的一中方式，支撑谷歌人工智能应用。
+
+```python
+import tensorflow as tf
+init = tf.global_variables_initializer()
+sess = tf.Session()
+sess.run(init)
+res = sess.run(result)
+print("result:", res)
+```
+
+MXNet:基于森警网络的深度学习计算框架，提供可扩展的神经网络及深度学习计算功能，可用于自动驾驶，机器翻译，语音识别等众多领域，是Python最重要的深度学习计算框架。
+
+霍兰德分析雷达图
+
+229
