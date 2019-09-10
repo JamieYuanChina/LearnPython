@@ -6,7 +6,6 @@ t = f.read()
 f.close()
 ls = jieba.cut(t)
 txt = " ".join(ls)
-w = wordcloud.WordCloud(width=1000, heigth=700,\
-                        backgrount_color="white", font_path="msyh.ttc")
+w = wordcloud.WordCloud(width=1000, height=700, background_color="white", font_path="msmincho.ttc")
 w.generate(txt)
 w.to_file("grwordcloud.png")

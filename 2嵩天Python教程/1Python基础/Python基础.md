@@ -1167,7 +1167,9 @@ import os
 libs = {"numpy", "matplotlib", "pillow", "sklearn", "requests",\
         "jieba", "beautifulsoup4", "wheel", "networkx", "sympy",\
         "pyinstaller", "django", "flask", "werobot", "pyqt5",\
-        "pandas", "pyopengl", "pypdf2", "docopt", "pygame"}
+        "pandas", "pyopengl", "pypdf2", "docopt", "pygame",\
+        "scipy", "mxnet", "mayavi", "nltk", "python-docx",\
+        "scikit_learn", "tensorflow", "seaborn"}
 try:
     for lib in libs:
         os.system("pip3 install " + lib)
@@ -1191,7 +1193,7 @@ SciPy：数学，科学和工程计算功能库，提供了一批数学而算法
 
 Matplotlib:高质量的二位数据可视化功能库，提供超过100种数据可视化展示效果，通过matplotlib.pyplot字库调用各个可视化效果，是最主要的数据可视化功能库，基于Numpy开发。
 
-Seaborm:统计类数据可视化功能库，提供了一批高层次的统计类数据可视化展示效果，主要展示数据间分布，分类和线性关系等内容，基于Matplotlib开发，支持Numpy和Pandas
+Seaborn:统计类数据可视化功能库，提供了一批高层次的统计类数据可视化展示效果，主要展示数据间分布，分类和线性关系等内容，基于Matplotlib开发，支持Numpy和Pandas
 
 Mayavi:三维可续数据可视化功能库，提供了一批简单易用的3D科学计算数据可视化展示效果，目前版本是Mayavi2，三维可视化最主要的第三方库，支持Numpy，TVTK，Traits，Envisage等第三方库
 
@@ -1244,4 +1246,7 @@ MXNet:基于森警网络的深度学习计算框架，提供可扩展的神经�
 
 霍兰德分析雷达图
 
-229
+代码见 HollandRadarDraw.py
+
+
+233
