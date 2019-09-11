@@ -1278,4 +1278,193 @@ for f in available:
 
 ```
 
-233
+python库之网络爬虫
+
+Requests:最友好的网络爬虫功能库，页面级别网络爬虫库。
+
+```python
+import requests
+r = requests.get('https://api.gethub.com/usr', auth=('user', 'pass'))
+r.status_code
+r.headers['content-type']
+r.encoding
+r.text
+```
+
+Scrapy:优秀的网络爬虫框架，提供了构建网络爬虫系统的框架功能，功能半成品。支持批量和定时爬取，提供数据处理流程等，是Python最主要且最专业的网络爬虫框架。
+
+pyspider:强大的web页面爬取系统，提供了完整的网页爬取系统构建功能，支持数据库后端，消息队列，优先级，分布式架构等等，是Python重要的网络爬虫类第三方库。
+
+web信息提取库
+
+Beautiful Soup:HTML和XML的解析库，又名beautifulsoup4或bs4可以加载多种解析引擎，常与网络爬虫库搭配使用，如Scrapy，requests等。
+
+Re：正则表达式解析和处理功能库，用于定义和解析正则表达式。可用于web信息的提取，是Python标准库。
+
+Python-Goose:提取文章类型Web页面功能库。
+
+```python
+from goose import Goose
+url = 'http://www.elmundo.es/elmundo/2012/10/28/espana/1351388909.html'
+g = Goose({'use_mate_language':False,'target_language':'es'})
+article = g.extract(url=url)
+article.cleaned_text[:150]
+```
+
+Web网站开发库
+
+Django：最流行的Web应用框架，采用MTV模式，模型(model)，模板(Template)，视图(Views)，略微复杂的应用框架。
+
+Pyramid:规模适中的Web应用框架，不大不小，适合快速构建并湿度扩展类应用，起步简单，扩展性好。
+
+```python
+from wsgiref.simple_server import make_server
+from pyramid.config import Configurator
+from pyramid.response import Response
+def hello_world(request):
+    return Response('Hello World!')
+if __name__ =='__main__':
+    with Configurator() as config:
+        config.add_route('hello', '/')
+        config.add_view(hello_world, route_name='hello')
+        app = config.make_wsgi_app()
+    server = make_server('0.0.0.0', 6543, app)
+    server.serve_forever()
+```
+
+Flask:Web应用开发框架，提供了最简单构建web系统的应用框架，特点是简单，规模小，快速。
+Django>Pyramid>Flask 好
+
+```
+from flask improt Flask
+app = Flask(__name__)
+@app.route('/')
+def hello_world():
+    return 'Hello,World!'
+```
+
+Python网络应用开发库
+
+WeRoBot:微信公众号开发框架，
+
+提供了解析微信服务器消息以及反馈消息的功能，建立微信机器人的重要技术手段。
+
+```python
+import werobot
+robot = werobot.WeRoBot(token='tokenhere')
+@robot.handler
+def hello(message):
+    return 'Hello World!'
+```
+
+对于想使用专业的人工智能功能的开发，可以使用百度的aip,提供了访问百度ai服务的python功能接口，包括语音、人脸、OCR、NLP、知识图谱、图像搜索等领域。是百度ai在用户端使用非常广泛的Python接口。
+
+MyQR:二维码生成第三方库，能够生成基本的二维码，彩色的二维码，动态的二维码
+
+第三方库总结：
+
+Requests、Scrapy、pyspider
+Beautiful Soup、Re、Python-Goose
+Django、Pyramid、Flask
+WeRobot、aip、MyQR
+
+从人机交互到艺术设计：包括图形用户界面，游戏开发，虚拟现实，图形艺术。
+
+图形用户界面：
+
+PyQt5：Qt开发矿建的Python接口，提供了创建Qt程序的Python API接口，是非常成熟的跨平台桌面应用开发系统。
+
+wxPython:跨平台GUI开发框架，理解数据类型与索引的关系，操作索引即操作数据，是Python最主要的数据分析功能库，基于Numpy开发
+
+```python
+import wx
+app = wx.App(False)
+frame = wx.Frame(None, wx.ID_ANY, "Hello World")
+frame.Show(True)
+app.MainLoop()
+```
+
+PyGObject:使用GTK+开发GUI的功能库，提供了整合GTK+、WebKitGTK+等库的功能，实现了跨平台的GUI框架，Anaconda采用了该库构建GUI。
+
+```python
+import gi
+gi.require_version("Gtk", "3.0")
+from gi.repository import Gtk
+window = Gtk.Window(title="Hello World")
+window.show()
+window.connect("destroy", Gtk.main_quit)
+Gtk.main()
+```
+
+Python游戏开发库
+
+PyGame：简单的游戏开发功能库，提供了基于SDL的简单游戏开发功能及实现引擎，理解游戏对外部输入的响应机制及角色构建和交互机制，是Python游戏入门最重要的第三方库。
+
+Panda3D：开源、跨平台的3D渲染和游戏开发库，提供一个3D游戏引擎，有Python和C++两种接口，支持很多先进的特性，法线贴图、光泽贴图、卡通渲染等，有迪士尼和卡尼基梅隆大学共同研发。
+
+cocos2d：构建2D游戏和图形界面交互式应用框架，提供了基于OpenGL的游戏开发图形渲染功能，支持GPU加速，采用属性结构分层管理游戏对象类型，适合于2D专业游戏开发。
+
+Python库之虚拟现实
+
+VR Zero：在树莓派上开发VR应用的Python库，提供大量与VR相关的功能，针对树莓派的VR开发库，支持设备小型化，配置简单化，非常适合初学者实践VR开发及应用。
+
+pyovr:Oculus Rift的Python开发接口，针对Oculus VR设备，提供全套文档，工业级应用设备。
+
+Vizard:基于Python的通用VR开发引擎，专业的企业级虚拟现实开发引擎，提供详细的官方文档，支持多种主流的VR硬件设备，具有一定的通用性。
+
+Python库之图形艺术：
+
+Quads：迭代的艺术，对图片进行四分迭代，形成像素风，可以生成动图或静图图像，简单易用，具有很高展示度
+
+ascii_art：ASCII艺术库，将普通图片转为ASCII艺术风格，输出可以是纯文本或彩色文本，也可采用图片个数输出。
+
+turtle:海龟绘图体系
+
+PyQt5、wxPython、PyGObject
+
+PyGame、Panda3D、cocos2D
+
+VR Zero 、pyovr、Vizard
+
+Quads、ascii_art、turtle
+
+玫瑰花绘制详见RoseDraw.py
+
+嵩天老师的Python课程基础部分到此结束。
+
+总结：
+
+Python语法的三个阶段：
+
+1Python基础语法--函数式编程
+
+2Python进阶语法--面向对象编程
+
+3Python高级语法--Pythonic编程(如何使用Python调用其他语言编写的模块)
+
+Python应用生态：
+
+Python网络爬虫与信息提取
+
+Python数据分析与展示
+
+Python机器学习应用
+
+Python科学计算三维可视化
+
+Python大数据人工智能
+
+Python嵌入式可编程硬件
+
+北京理工大学Python系列视频都会有所涉猎。
+
+学习展望：
+
+Python未来之路在哪里？
+
+Python Everywhere，Python无处不在
+
+Python Only Not Enough，只有Python可以但不足够
+
+Python EcosSystem，Python计算生态将成为编程主流
+
