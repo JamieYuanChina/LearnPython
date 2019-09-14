@@ -1,4 +1,4 @@
-# Unit PYG02: Pygame Wall Ball Game Version 4
+# Unit PYG03: Pygame Wall Ball Game Version 4
 import pygame
 import sys
 

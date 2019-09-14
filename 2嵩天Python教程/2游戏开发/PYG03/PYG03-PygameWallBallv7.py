@@ -1,4 +1,4 @@
-# Unit PYG02: Pygame Wall Ball Game Version 7
+# Unit PYG03: Pygame Wall Ball Game Version 7
 import pygame
 import sys
 
@@ -33,7 +33,7 @@ while True:
                 speed[1] = speed[1] if speed[1] == 0 else (abs(speed[1]) - 1) * int(speed[1]/abs(speed[1]))
             elif event.key == pygame.K_ESCAPE:
                 sys.exit()
-        elif event.type == pygame.RESIZABLE:
+        elif event.type == pygame.VIDEORESIZE:
             size = width, height = event.size[0], event.size[1]
             screen = pygame.display.set_mode(size, pygame.RESIZABLE)
     if pygame.display.get_active():
