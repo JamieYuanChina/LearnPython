@@ -6,7 +6,7 @@
 
 #### 2、[嵩天Python教程](./2嵩天Python教程/README.md)
 
-Python经常用到的库：
+学习Python过程用到过的库：
 
 | 库名    | 功能         | 备注 |
 | ------- | ------------ | ---- |
@@ -18,7 +18,14 @@ Python经常用到的库：
 | pyinstaller | 程序打包 | 第三方库 |
 | jieba | 中文分词 | 第三方库python2.x |
 | wordcloud | 词云展示库 | 第三方库 |
-| os库 | 操作系统相关 | 标准库 |
+| os | 操作系统相关 | 标准库 |
+| math | 数学库 | 比如pi |
+| sys | 系统 | 比如sys.exit() |
+| requests | 网页爬虫 | |
+| beautiful soup | HTML，XML格式解析 | 美味汤 |
+| re | 正则表达式 | 字符串操作 |
+| | | |
+| | | |
 | | | |
 | | | |
 | | | |
