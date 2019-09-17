@@ -24,8 +24,8 @@
 | requests | 网页爬虫 | |
 | beautiful soup | HTML，XML格式解析 | 美味汤 |
 | re | 正则表达式 | 字符串操作，标准库 |
-| | | |
-| | | |
+| traceback | 调试信息 | |
+| Scrapy | 爬虫框架 | |
 | | | |
 | | | |
 | | | |
