@@ -1,14 +1,17 @@
 import requests
 import re
 
+
 def getHTMLText(url):
     try:
-        r = requests.get(url, timeout = 30)
+        kv = {'user-agent': 'Mozilla/5.0'}
+        r = requests.get(url, timeout=30, headers=kv)
         r.raise_for_status()
         r.encoding = r.apparent_encoding
         return r.text
     except:
-        return ""
+        return "err-get"
+
 
 def parsePage(ilt,html):
     try:
@@ -18,8 +21,10 @@ def parsePage(ilt,html):
             price = eval(plt[i].split(':')[1])
             title = eval(lt[i].split(':')[1])
             ilt.append([price, title])
+            print("ilt len:%d",len(ilt))
     except:
-        print("")
+        print("err-parse")
+
 
 def printGoodsList(ilt):
     tplt = "{:4}\t{:8}\t{:16}"
@@ -28,6 +33,7 @@ def printGoodsList(ilt):
     for g in ilt:
         count = count + 1
         print(tplt.format(count, g[0], g[1]))
+
 
 def main():
     goods = '书包'
@@ -39,8 +45,10 @@ def main():
             url = start_url + '&s=' + str(44*i)
             html = getHTMLText(url)
             parsePage(infoList, html)
+
         except:
             continue
     printGoodsList(infoList)
+
 
 main()
