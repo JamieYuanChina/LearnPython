@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ea377463-fe0a-4a2a-a63b-4cd3023baf10" name="Default Changelist" comment="" />
+    <list default="true" id="ea377463-fe0a-4a2a-a63b-4cd3023baf10" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../4数据分析/test.png" beforeDir="false" afterPath="$PROJECT_DIR$/../4数据分析/test.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../4数据分析/数据分析.md" beforeDir="false" afterPath="$PROJECT_DIR$/../4数据分析/数据分析.md" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,17 +141,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="3爬虫技术" type="b2602c69:ProjectViewProjectNode" />
-              <item name="3爬虫技术" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="ProjectPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -304,9 +297,9 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="-1" width="1922" height="1028" extended-state="6" />
+    <frame x="0" y="0" width="1920" height="1026" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13758565" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13758565" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
