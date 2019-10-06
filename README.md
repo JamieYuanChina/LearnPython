@@ -29,8 +29,15 @@
 | numpy | 数据计算 | |
 | PIL.Image | 图像 | |
 | matplotlib | 数据绘图 | |
-| | | |
-| | | |
+| pandas | 数据处理 | |
+| django | web框架 | |
+| scipy | 机器学习 | |
+| VTK |  | |
+| Mayavi |  | |
+| Traits |  | |
+| TraitsUI |  | |
+| PyQt4 |  | |
+|  |  | |
 
 
 
